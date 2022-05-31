@@ -61,6 +61,23 @@ describe('subtract', () => {
     expect(actual).toBe(expected);
   });
   
+  test('can subtract two negative numbers (adding)', () => {
+    expected = -25;
+    actual = subtract(-85, -60);
+    expect(actual).toBe(expected);
+  });
+
+  test('can subtract a positive number from a negative number', () => {
+    expected = -127;
+    actual = subtract(-73, 54);
+    expect(actual).toBe(expected);
+  });
+
+  test('can subtract a negative number from a positive number', () => {
+    expected = 108;
+    actual = subtract(75, -33);
+    expect(actual).toBe(expected);
+  });
 });
 
 
@@ -79,7 +96,17 @@ describe('multiply', () => {
     expect(actual).toBe(expected);
   });
 
- 
+  test('can multiply two negative numbers', () => {
+    expected = 36;
+    actual = multiply(-12, -3);
+    expect(actual).toBe(expected);
+  });
+
+  test('can multiply one positive and one negative number', () => {
+    expected = 36;
+    actual = multiply(-12, -3);
+    expect(actual).toBe(expected);
+  });
 });
 
 
@@ -96,6 +123,24 @@ describe('divide', () => {
   test('can divide two large numbers', () => {
     expected = 20;
     actual = divide(1000, 50);
+    expect(actual).toBe(expected);
+  });
+
+  test('can divide two negative numbers', () => {
+    expected = 4;
+    actual = divide(-80, -20);
+    expect(actual).toBe(expected);
+  });
+
+  test('can divide a positive number from a negative number', () => {
+    expected = -11;
+    actual = divide(-55, 5);
+    expect(actual).toBe(expected);
+  });
+
+  test('can divide a negative number from a positive number', () => {
+    expected = -3;
+    actual = divide(75, -25);
     expect(actual).toBe(expected);
   });
 
@@ -117,6 +162,13 @@ describe('modulus', () => {
       actual = modulus(564327, 474747);
       expect(actual).toBe(expected);
     });
+
+    test('can get a modulus with no remainder (modulus = 0)', () => {
+      expected = 0;
+      actual = modulus(16, 4);
+      expect(actual).toBe(expected);
+    });
+
 });
 
 
@@ -134,6 +186,15 @@ describe('even', () => {
     expect(actual).toBeTruthy();
   });
 
+  test('can test whether a positive number is odd & return false', () => {
+    actual = even(3);
+    expect(actual).toBeFalsy();
+  });
+
+  test('can test whether a negative number is odd & return false', () => {
+    actual = even(-63);
+    expect(actual).toBeFalsy();
+  });
 });
 
 
@@ -151,4 +212,14 @@ describe('odd', () => {
     expect(actual).toBeTruthy();
   });
 
+  test('can test whether a positive number is even & return false', () => {
+    actual = odd(8);
+    expect(actual).toBeFalsy();
+  });
+
+  test('can test whether a negative number is even & return false', () => {
+    actual = odd(-100);
+    expect(actual).toBeFalsy();
+  });
 });
+
